@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ $toc := and (.Params.showTableOfContents | default (.Site.Params.list.showTableOfContents | default false)) (in .TableOfContents "<ul") }}
+  <header>
+    {{ if .Site.Params.list.showBreadcrumbs | default false }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+  </header>
+
+
+  
+  {{ partial "article-featured.html" . }}
+
+  <section class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
+    {{ range .Pages }}
+      {{ partial "article-link.html" . }}
+    {{ end }}
+  </section>
+  {{ partial "pagination.html" . }}
+
+{{ end }}

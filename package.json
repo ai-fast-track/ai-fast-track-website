@@ -1,0 +1,21 @@
+{
+  "name": "ai-fast-track.com",
+  "version": "1.0.0",
+  "description": "AI Fast Track Website",
+  "main": "",
+  "scripts": {
+    "server": "hugo server -b http://localhost -p 8777",
+    "dev": "NODE_ENV=development ./themes/congo/node_modules/tailwindcss/lib/cli.js -c ./themes/congo/tailwind.config.js -i ./themes/congo/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
+    "build": "NODE_ENV=production ./themes/congo/node_modules/tailwindcss/lib/cli.js -c ./themes/congo/tailwind.config.js -i ./themes/congo/assets/css/main.css -o ./assets/css/compiled/main.css --jit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-fast-track/ai-fast-track.com.git"
+  },
+  "author": "Farid Hassainia, PhD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ai-fast-track/ai-fast-track.com/issues"
+  },
+  "homepage": "https://github.com/ai-fast-track/ai-fast-track.com#readme"
+}

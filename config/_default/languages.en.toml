@@ -1,0 +1,24 @@
+languageCode = "en"
+languageName = "English"
+displayName = "EN"
+isoCode = "en"
+weight = 1
+rtl = false
+
+title = "Congo"
+logo = "img/logo.jpg"
+description = "AI Fast Track"
+copyright = "AI Fast Track"
+
+dateFormat = "2 January 2006"
+
+[author]
+  name = "Farid Hassainia, PhD"
+  image = "img/author.jpg"
+  headline = "I'm the IceVision co-Creator"
+  bio = "A little bit about you"
+    links = [
+    { twitter = "https://twitter.com/ai_fast_track" },
+    { linkedin = "https://www.linkedin.com/in/farid-hassainia-ca/" },
+    { youtube = "https://www.youtube.com/channel/UCht9jVWkzlolBqWJ2tsskOQ" },
+  ]

@@ -1,0 +1,59 @@
+<article class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">  
+  <div>
+    {{ if .Params.Image }}
+    <a href="{{ .RelPermalink }}" class="block">
+      <img 
+        class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" 
+        src="{{ .RelPermalink }}/{{ .Params.Image }}"
+        alt="" 
+      />
+    </a>
+    {{ end }}
+
+    <!--div class="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block">
+      <span>Lifestyle</span>
+    </div-->
+
+
+    <h2 class="text-lg font-bold sm:text-xl md:text-2xl">
+      {{ with .Params.externalUrl }}
+        <a
+          class="decoration-primary-500 hover:underline hover:underline-offset-2 text-neutral-800 dark:text-neutral"
+          href="{{ . }}"
+          target="_blank"
+          rel="external"
+          >{{ $.Title | emojify }}</a
+        >
+        <span
+          class="-mt-2 text-xs cursor-default text-neutral-400 dark:text-neutral-500"
+          title="{{ i18n "list.externalurl_title" }}"
+        >
+          &#8599;
+        </span>
+      {{ else }}
+        <a
+          class="decoration-primary-500 hover:underline hover:underline-offset-2 text-neutral-800 dark:text-neutral"
+          href="{{ .RelPermalink }}"
+          >{{ .Title | emojify }}</a
+        >
+      {{ end }}
+      {{ if and .Draft .Site.Params.article.showDraftLabel }}
+        <div class="ltr:ml-2 rtl:mr-2">
+          {{ partial "badge.html" (i18n "article.draft" | emojify) }}
+        </div>
+      {{ end }}
+      {{ if templates.Exists "partials/extend-article-link.html" }}
+        {{ partial "extend-article-link.html" . }}
+      {{ end }}
+    </h2>
+    {{ if .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
+    <div class="py-1 prose dark:prose-invert text-gray-500">
+      {{ .Summary | emojify }}
+    </div>
+    {{ end }}
+    <div class="text-sm text-gray-400 dark:text-neutral-400">
+      {{ partial "article-meta.html" . }}
+    </div>
+
+  </div>
+</article>

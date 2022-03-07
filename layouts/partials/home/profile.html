@@ -1,0 +1,75 @@
+<article
+  class="flex flex-col items-center justify-center text-center {{ if not .Site.Params.homepage.showRecent }}
+    h-full
+  {{ end }}"
+>
+  <figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 max-w-xl">
+  {{ with .Site.Author.image }}
+        {{ $authorImage := resources.Get . }}
+        {{ if $authorImage }}
+          {{ $authorImage := $authorImage.Fill "288x288" }}
+          <img 
+            class="w-24 h-24 md:w-48 md:h-48 md:rounded-full rounded-full mx-auto p-4" 
+            src="{{ $authorImage.RelPermalink }}" 
+            alt="" 
+            width="384" 
+            height="512"
+            />
+        {{ end }}
+      {{ end }}
+    <div class="pt-6 md:p-4 text-center md:text-left space-y-4">
+      <blockquote>
+        <p class="text-lg font-medium">
+          “Tailwind CSS is the only framework that I've seen scale
+          on large teams. It’s easy to customize, adapts to any design,
+          and the build size is tiny.”
+        </p>
+      </blockquote>
+      <figcaption class="font-medium">
+        <div class="text-sky-500 dark:text-sky-400">
+          Sarah Dayan
+        </div>
+        <div class="text-slate-700 dark:text-slate-500">
+          Staff Engineer, Algolia
+        </div>
+      </figcaption>
+    </div>
+  </figure>
+  <header class="my-10">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="py-8">
+        <span class="text-4xl font-extrabold text-transparent bg-gradient-to-r bg-clip-text from-sky-400 to-gray-700">
+          {{ .Site.Author.name | default .Site.Title }}
+        </span>
+        {{ with .Site.Author.headline }}
+          <h2 class="text-xl text-neutral-500 dark:text-neutral-400">
+            {{ . }}
+          </h2>
+        {{ end }}
+        <div class="mt-1 text-2xl">
+          {{ partialCached "author-links.html" . }}
+        </div>
+      </div>
+
+      <div>
+        {{ with .Site.Author.image }}
+          {{ $authorImage := resources.Get . }}
+          {{ if $authorImage }}
+            {{ $authorImage := $authorImage.Fill "288x288" }}
+            <img
+              class="mb-2 rounded-full w-36 h-36"
+              width="144"
+              height="144"
+              alt="Author"
+              src="{{ $authorImage.RelPermalink }}"
+            />
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>  
+  </header>
+  <section class="prose dark:prose-invert">{{ .Content | emojify }}</section>
+</article>
+<section>
+  {{ partial "recent-articles.html" . }}
+</section>
