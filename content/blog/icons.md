@@ -10,8 +10,6 @@ image: "https://images.unsplash.com/photo-1542438408-abb260104ef3?ixlib=rb-1.2.1
 
 Congo has built-in support for a number of [FontAwesome 5](https://fontawesome.com/icons) icons. These can be included in your website through 
 
-{{< tweet 1467980857881157634 >}}
-
 {{< vimeo 146022717 >}}
 
 {{< lead >}}
